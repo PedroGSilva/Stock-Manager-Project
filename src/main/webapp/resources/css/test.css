@@ -1,0 +1,185 @@
+/**{
+	border: 1px solid black;
+}*/
+
+#header {
+	height: 80px;
+	text-align: left;
+ 	background-color: #1f3033;
+ 	/* border-bottom: 1px solid #afafaf; */
+ 	background-image: url(#{request.contextPath}/resources/images/check.png)/* , url(#{request.contextPath}/resources/images/city1.jpg) */;
+ 	background-size: 70px/* , cover */;
+ 	background-repeat: no-repeat/* , no-repeat */;
+ 	background-position: 2% 50% /* , 48% 48% */;
+ 	padding-left: 100px;
+ 	
+}
+
+#messages{
+	text-align: left;
+	height: 40px;
+	background-color: #4c5566;
+}
+
+
+#menu{
+	height: 850px;
+	background-color: #4c5566;
+}
+
+#contentdisplay{
+	height: 850px;
+	bottom: 0;
+	background-color: #666f7f;
+}
+
+
+#footer {
+	height: 42px;
+	text-align: left;
+	background-color: #1f3033;
+	border-top: 1px solid #afafaf;
+	position: fixed;
+ 	bottom: 0;
+ 	width: 100%;
+}
+
+.action {
+	padding-top: 10px;
+}
+
+#menuButton1,#menuButton2,#menuButton3,#menuButton4,#menuButton5,#menuButton6 {
+	height:50px;
+	padding-top: 10px;
+}
+
+.subtitleprod {
+	padding: 10px 45px;
+	color: white;
+	background-image: url(#{request.contextPath}/resources/images/box.png);
+	background-size: 40px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 20%;
+}
+
+.subtitleshelf {
+	padding: 10px 45px;
+	color: white;
+	background-image: url(#{request.contextPath}/resources/images/boxes.png);
+	background-size: 40px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 20%;
+}
+
+.mybuttonprod {
+	padding: 10px 35px;
+	color: white;
+	background-image: url(#{request.contextPath}/resources/images/box.png);
+	background-size: 33px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 50%;
+ 	font-family: 'Fauna One', serif;
+}
+
+.mybuttonprod:hover {
+	padding: 10px 35px;
+	color: white;
+	background-image: url(#{request.contextPath}/resources/images/box.png);
+	background-size: 33px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 50%;
+ 	font-family: 'Fauna One', serif;
+}
+
+.mybuttonshelf {
+	padding: 10px 35px;
+	color: white;
+	background-image: url(#{request.contextPath}/resources/images/boxes.png);
+	background-size: 30px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 50%;
+ 	font-family: 'Fauna One', serif;
+}
+
+.mybuttonshelf:hover {
+	padding: 10px 35px;
+	color: white;
+	background-image: url(#{request.contextPath}/resources/images/boxes.png);
+	background-size: 30px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 50%;
+ 	font-family: 'Fauna One', serif;
+}
+
+.mybuttonadd,.mybuttonremove,.mybuttonedit,.mybuttonchecker,.mybuttonback {
+	padding: 10px 35px;
+	color: white;
+	background-size: 30px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 50%;
+ 	font-family: 'Fauna One', serif;
+}
+
+.mybuttonadd:hover,.mybuttonremove:hover,.mybuttonedit:hover,.mybuttonchecker:hover,.mybuttonback:hover {
+	padding: 10px 35px;
+	color: white;
+	background-size: 30px;
+ 	background-repeat: no-repeat;
+ 	background-position: 0% 50%;
+ 	font-family: 'Fauna One', serif;
+}
+
+.mybuttonadd{
+	background-image: url(#{request.contextPath}/resources/images/add.png);
+}
+
+.mybuttonremove{
+	background-image: url(#{request.contextPath}/resources/images/remove.png);
+}
+
+.mybuttonedit{
+	background-image: url(#{request.contextPath}/resources/images/edit.png);
+}
+
+.mybuttonchecker{
+	background-image: url(#{request.contextPath}/resources/images/checker.png);
+}
+
+.mybuttonback {
+	background-image: url(#{request.contextPath}/resources/images/backthin.png);
+}
+	
+
+.label {
+	font-size: 14px;
+	color: white;
+	font-family: 'Fauna One', serif;
+}
+
+.table {
+	padding: 15px;
+	font-family: 'Fauna One', serif;
+	text-align: center;
+}
+
+.form {
+	padding: 15px;	
+}
+
+h2,h3,h4,p {
+	font-family: 'Fauna One', serif;
+}
+
+h1 {
+	font-family: 'Lustria', serif;
+	color: white;
+}
+
+h2 {
+	color: white;
+}
+
+h4 {
+	color: white;
+}
+

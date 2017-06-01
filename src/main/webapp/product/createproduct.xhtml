@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="messages">
+		<h4>Por favor preencha os campos abaixo</h4>
+	</ui:define>
+
+	<!-- Return to Product List -->
+	<ui:define name="button5">
+		<h:form>
+			<p:commandLink value="Voltar ao ecrã anterior" action="productstate"
+				styleClass="mybuttonback" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="content">
+		<div class="title">
+			<h3 class="subtitleprod">Criar novo produto</h3>
+		</div>
+
+		<div class="inputs">
+			<h:form styleClass="form">
+				<h:panelGrid columns="2" cellpadding="3" styleClass="ui-grid">
+					<h:outputLabel for="name" value="Nome do produto: " styleClass="label" />
+					<p:inputText id="name" value="#{productBean.product.name}" />
+
+					<h:outputLabel for="sPrice" value="PVP: " styleClass="label"/>
+					<p:spinner id="sPrice" value="#{productBean.product.sPrice}"
+						suffix="€" min="0.00" stepFactor="0.01" />
+
+					<h:outputLabel for="disc" value="Desconto: " styleClass="label"/>
+					<p:spinner id="disc" value="#{productBean.product.disc}" suffix="%"
+						min="0.00" stepFactor="0.01" />
+
+					<h:outputLabel for="vat" value="IVA: " styleClass="label"/>
+					<p:spinner id="vat" value="#{productBean.product.vat}" suffix="%"
+						min="0" />
+						
+					<p:commandLink id="createProductButton" value="Criar produto"
+						action="#{productBean.productService.createProd(productBean.product, 'productstate')}"
+						styleClass="mybuttonadd">
+					</p:commandLink>
+				</h:panelGrid>
+			</h:form>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>

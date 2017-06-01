@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="messages">
+		<h4>Por favor selecione uma das opções</h4>
+	</ui:define>
+
+	<ui:define name="button1">
+		<h:form>
+			<p:commandLink value="Criar novo produto" action="createproduct"
+				styleClass="mybuttonadd" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="button2">
+		<h:form>
+			<p:commandLink value="Gerir produtos" action="productlist"
+				styleClass="mybuttonedit" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="button5">
+		<h:form>
+			<p:commandLink value="Voltar ao ecrã anterior" action="/index"
+				styleClass="mybuttonback" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="content">
+		<h3 class="subtitleprod">Lista de produtos</h3>
+
+		<p:dataTable var="product"
+			value="#{productBean.productService.listProducts()}" styleClass="table">
+			<p:column headerText="ID">
+				<h:outputText value="#{product.ID}" />
+			</p:column>
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{product.name}" />
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+
+</ui:composition>

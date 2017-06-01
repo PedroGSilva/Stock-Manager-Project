@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<ui:composition template="/WEB-INF/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:define name="messages">
+		<h4>Clique para editar ou consultar detalhes e selecione as prateleiras a remover</h4>
+	</ui:define>
+
+	<!-- Return to Product List -->
+	<ui:define name="button5">
+		<h:form>
+			<p:commandLink value="Voltar ao ecrã anterior" action="shelfstate"
+				styleClass="mybuttonback" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="content">
+		<h3 class="subtitleshelf">Lista de prateleiras</h3>
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:dataTable var="shelf" id="Shelfs"
+				value="#{shelfBean.shelfService.listShelfs()}"
+				paginatorTemplate="{CurrentPageReport}  {PreviousPageLink} {PageLinks} {NextPageLink}"
+				paginator="true" rows="10" style="margin-bottom:20px"
+				styleClass="table" editable="true" selection="#{shelfBean.selectedShelf}" rowKey="#{shelf.local}">
+
+				<p:ajax event="rowEdit" listener="#{shelfBean.onRowEdit}"
+					update=":form:msgs" />
+				<p:ajax event="rowEditCancel" listener="#{shelfBean.onRowCancel}"
+					update=":form:msgs" />
+
+				<!-- <p:column selectionMode="single" style="width:50px;text-align:center"/> -->
+        		
+				<p:column headerText="Id">
+					<h:outputText value="#{shelf.ID}" />
+				</p:column>
+
+				<p:column headerText="Localização">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{shelf.local}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{shelf.local}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<p:column headerText="Capacidade">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{shelf.capac}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:spinner value="#{shelf.capac}" style="width:100%" suffix="produto" min="0" max="1" stepFactor="01"/>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<!-- <p:column headerText="Id do produto">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{shelf.prodId}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{shelf.prodId}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column> -->
+
+				<p:column headerText="Renda">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{shelf.rent}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{shelf.rent}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				
+				<p:column>
+					<p:commandButton icon="ui-icon-trash" action="#{shelfBean.shelfService.removeShelf2(shelf.ID, 'shelfstate')}" />
+				</p:column>
+				
+				<p:column style="width:32px">
+					<p:rowEditor />
+				</p:column>
+				
+				<!-- <f:facet name="footer">
+            		<p:commandButton process="Shelfs" icon="ui-icon-trash" action="#{shelfBean.shelfService.removeShelf()}" />
+       			</f:facet> -->
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

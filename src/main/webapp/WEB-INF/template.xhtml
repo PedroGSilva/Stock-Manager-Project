@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>SM</title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="test.css" /> 
+	<!-- <h:graphicImage library="images" name="headericon.png.png"/> -->
+	<link href="https://fonts.googleapis.com/css?family=Fauna+One|Lato|Lustria|Playfair+Display" rel="stylesheet"/>
+</h:head>
+
+<h:body>
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div id="header" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+				<ui:insert name="header">
+					<h1 class="test">Stock Manager</h1>
+				</ui:insert>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="messages" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<ui:insert name="messages"></ui:insert>
+			</div>
+		</div>
+
+		<div id="maincontent" class="row">
+			<div id="menu" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<div id="menuButton1" class="col-md-12">
+					<ui:insert name="button1" class="button"></ui:insert>
+				</div>
+				<div id="menuButton2" class="col-md-12">
+					<ui:insert name="button2" class="button"></ui:insert>
+				</div>
+				<div id="menuButton3" class="col-md-12">
+					<ui:insert name="button3" class="button"></ui:insert>
+				</div>
+				<div id="menuButton4" class="col-md-12">
+					<ui:insert name="button4" class="button"></ui:insert>
+				</div>
+				<div id="menuButton5" class="col-md-12">
+					<ui:insert name="button5" class="button"></ui:insert>
+				</div>
+				<div id="menuButton6" class="col-md-12">
+					<ui:insert name="button6" class="button"></ui:insert>
+				</div>
+			</div>
+
+			<div id="contentdisplay" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				<div id="content">
+					<ui:insert name="content" styleClass="title"></ui:insert>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer" class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<ui:insert name="footer">
+					<h4>Up Academy</h4>
+				</ui:insert>
+			</div>
+		</div>
+	</div>
+
+	<h:outputScript defer="defer" library="js" name="bootstrap.min.js" />
+</h:body>
+</html>

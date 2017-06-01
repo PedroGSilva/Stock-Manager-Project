@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="/WEB-INF/template.xhtml">
+	
+		<ui:define name="messages">
+			<h4> Por favor selecione uma das opções </h4>
+		</ui:define>
+	
+		<ui:define name="button1">
+			<h:form>
+				<p:commandLink value="Criar nova prateliera" action="createshelf" styleClass="mybuttonadd"/>
+			</h:form>
+		</ui:define>
+
+		<ui:define name="button2">
+			<h:form>
+				<p:commandLink value="Gerir prateleiras" action="shelflist" styleClass="mybuttonedit"/>
+			</h:form>
+		</ui:define>
+
+		<!-- <ui:define name="button3">
+			<h:form>
+				<p:commandLink value="Consultar prateleira" action="consultshelf" styleClass="mybutton"/>
+			</h:form>
+		</ui:define>
+
+		<ui:define name="button4">
+			<h:form>
+				<p:commandLink value="Remover prateleira" action="removeshelf" styleClass="mybutton"/>
+			</h:form>
+		</ui:define> -->
+
+		<ui:define name="button5">
+			<h:form>
+				<p:commandLink value="Voltar ao ecrã anterior" action="/index" styleClass="mybuttonback"/>
+			</h:form>
+		</ui:define>
+		
+		<ui:define name="content">
+		<h3 class="subtitleshelf">Lista de prateleiras</h3>
+
+		<p:dataTable var="shelf"
+			value="#{shelfBean.shelfService.listShelfs()}" styleClass="table">
+			<p:column headerText="ID">
+				<h:outputText value="#{shelf.ID}" />
+			</p:column>
+
+			<p:column headerText="Localização">
+				<h:outputText value="#{shelf.local}" />
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

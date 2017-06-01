@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="/WEB-INF/template.xhtml">
+	
+		<ui:define name="messages">
+			<h4> Por favor preencha os campos abaixo </h4>
+		</ui:define>
+	
+		<!-- Return to Product List -->
+		<ui:define name="button5">
+			<h:form>
+				<p:commandLink value="Voltar ao ecrã anterior" action="shelfstate" styleClass="mybuttonback"/>
+			</h:form>
+		</ui:define>
+		
+		<ui:define name="content">
+			<div class="title">
+				<h3 class="subtitleshelf">Criar nova prateleira</h3>
+			</div>
+
+			<div class="inputs">
+			<h:form styleClass="form">
+				<h:panelGrid columns="2" cellpadding="2" styleClass="ui-grid">
+					<h:outputLabel for="local" value="Código de localização: " styleClass="label" />
+					<p:spinner id="local" value="#{shelfBean.shelf.local}" min="0" stepFactor="1"/>
+
+					<h:outputLabel for="capac" value="Capacidade: " styleClass="label"/>
+					<p:spinner id="capac" value="#{shelfBean.shelf.capac}"
+						suffix="produtos" min="0" max="1" stepFactor="01" />
+
+					<h:outputLabel for="prodId" value="ID do produto: " styleClass="label"/>
+					<!--<p:spinner id="prodId" value="#{shelfBean.shelf.prodId}" min="0" stepFactor="1" /> -->
+
+					<h:outputLabel for="rent" value="Renda: " styleClass="label"/>
+					<p:spinner id="rent" value="#{shelfBean.shelf.rent}" suffix="€"
+						min="0.00" stepFactor="0.01"/>
+						
+					<p:commandLink id="createShelfButton" value="Criar prateleira"
+						action="#{shelfBean.shelfService.createShelf(shelfBean.shelf, 'shelfstate')}"
+						styleClass="mybuttonadd">
+					</p:commandLink>
+				</h:panelGrid>
+			</h:form>
+		</div>
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>
